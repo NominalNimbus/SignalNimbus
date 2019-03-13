@@ -1,0 +1,108 @@
+﻿<Window x:Class="DebugService.wndCreateSimulatedData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:classes="clr-namespace:DebugService.Classes"
+        WindowStyle="ToolWindow"
+        Title="Create simulated data" 
+        Height="350" 
+        Width="230" 
+        Foreground="#AAAAAA"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/DarkSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource MainWindowStyle}">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        
+            <Grid.Resources>
+                <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,0,15,0"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="Snow"/>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="xctk:IntegerUpDown">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Foreground" Value="Snow"/>
+                    <Setter Property="Minimum" Value="0"/>
+                </Style>
+                <Style TargetType="xctk:DoubleUpDown">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Minimum" Value="0"/>
+                    <Setter Property="Foreground" Value="Snow"/>
+                </Style>
+                <ObjectDataProvider x:Key="dataFromEnum"
+                    MethodName="GetValues" ObjectType="{x:Type sys:Enum}" >
+                                        <ObjectDataProvider.MethodParameters>
+                                            <x:Type TypeName="classes:Periodicity" />
+                                        </ObjectDataProvider.MethodParameters>
+                </ObjectDataProvider>
+            </Grid.Resources>
+        
+            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockStyle}">Symbol:</TextBlock>
+            <TextBlock Grid.Row="1" Style="{StaticResource TextBlockStyle}">Security ID:</TextBlock>
+            <TextBlock Grid.Row="2" Style="{StaticResource TextBlockStyle}">Data Feed:</TextBlock>
+            <TextBlock Grid.Row="3" Style="{StaticResource TextBlockStyle}">Timeframe:</TextBlock>
+            <TextBlock Grid.Row="4" Style="{StaticResource TextBlockStyle}">Interval:</TextBlock>
+            <TextBlock Grid.Row="5" Style="{StaticResource TextBlockStyle}">Bars count:</TextBlock>
+            <TextBlock Grid.Row="6" Style="{StaticResource TextBlockStyle}">Ticks count:</TextBlock>
+            <TextBlock Grid.Row="7" Style="{StaticResource TextBlockStyle}">Market levels:</TextBlock>
+            <TextBlock Grid.Row="8" Style="{StaticResource TextBlockStyle}">Price max:</TextBlock>
+            <TextBlock Grid.Row="9" Style="{StaticResource TextBlockStyle}">Price min:</TextBlock>
+            <TextBlock Grid.Row="10" Style="{StaticResource TextBlockStyle}">Slot:</TextBlock>
+        
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Symbol}"/>
+            <xctk:IntegerUpDown Grid.Row="1" Grid.Column="1" Value="{Binding SecurityID}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding DataFeed}"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding Periodicity}"/>
+            <xctk:IntegerUpDown Grid.Row="4" Grid.Column="1" Value="{Binding Interval}" Minimum="1"/>
+            <xctk:IntegerUpDown Grid.Row="5" Grid.Column="1"  Value="{Binding BarsCount}" Minimum="10"/>
+            <xctk:IntegerUpDown Grid.Row="6" Grid.Column="1" Value="{Binding TicksCount}"/>
+            <xctk:IntegerUpDown Grid.Row="7" Grid.Column="1" Value="{Binding MarketLevels}"/>
+            <xctk:DoubleUpDown Grid.Row="8" Grid.Column="1" Value="{Binding PriceMax}" Minimum="0.1" Maximum="1000"/>
+            <xctk:DoubleUpDown Grid.Row="9" Grid.Column="1" Value="{Binding PriceMin}" Minimum="0.1" Maximum="1000"/>
+            <xctk:DoubleUpDown Grid.Row="10" Grid.Column="1" Value="{Binding Slot}" Minimum="1" Maximum="1000"/>
+            
+            <StackPanel Grid.Row="11" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
+                <Button Margin="10,0" Width="60" IsDefault="True" Click="btnOK_Click">OK</Button>
+                <Button Width="60" IsCancel="True" Click="btnCancel_Click">Cancel</Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

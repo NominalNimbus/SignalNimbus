@@ -1,0 +1,14 @@
+.vs/
+bin/
+obj/
+packages/
+!packages/repositories.config
+Zircon.Setup/Setup Files/*
+Zircon.Setup/Setup Files/*.exe
+
+UserInterface/Zircon.UserInterface/Properties/ScriptingResources*.*
+Zircon.AuthorityServer.REST/Data/*
+
+*.user
+*.orig
+UpgradeLog.htm

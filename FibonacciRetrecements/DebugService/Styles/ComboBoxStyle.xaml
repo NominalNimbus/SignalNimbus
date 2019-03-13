@@ -1,0 +1,765 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Brushes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style x:Key="ComboBoxFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="4,4,21,4" SnapsToDevicePixels="true" Stroke="Black" StrokeThickness="1" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="GlossyBlack_GlossGradient" x:Uid="LinearGradientBrush_3" StartPoint="0.486000001430511,0.723999977111816" EndPoint="0.0149999996647239,0.0160000007599592">
+        <GradientStop x:Uid="GradientStop_9" Color="#0CFFFFFF" />
+        <GradientStop x:Uid="GradientStop_10" Offset="1" Color="#4CFFFFFF" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_BackgroundGradient" x:Uid="LinearGradientBrush_4" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop x:Uid="GradientStop_11" Color="#FF3B3B3B" />
+        <GradientStop x:Uid="GradientStop_12" Offset="1" Color="#FF000000" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_StrokeGradient" x:Uid="LinearGradientBrush_5" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop x:Uid="GradientStop_13" Color="#44FFFFFF" />
+        <GradientStop x:Uid="GradientStop_14" Offset="1" Color="#33FFFFFF" />
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_HighlightGradient" x:Uid="RadialGradientBrush_1">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_1">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.451"
+                                x:Uid="ScaleTransform_1" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_1" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_1" />
+                <TranslateTransform Y="0.562" x:Uid="TranslateTransform_1" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_15" Color="#4CFFFFFF" />
+        <GradientStop x:Uid="GradientStop_16" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_MouseOverBackgroundGradient" x:Uid="RadialGradientBrush_2">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_2">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.451"
+                                x:Uid="ScaleTransform_2" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_2" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_2" />
+                <TranslateTransform Y="0.562" x:Uid="TranslateTransform_2" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_17" Color="#CCFFFFFF" />
+        <GradientStop x:Uid="GradientStop_18" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_PressedBackgroundGradient" x:Uid="LinearGradientBrush_6" StartPoint="0.5,1" EndPoint="0.5,0">
+        <GradientStop x:Uid="GradientStop_19" Color="#FF3B3B3B" />
+        <GradientStop x:Uid="GradientStop_20" Offset="1" Color="#FF000000" />
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_PressedHighlightGradient" x:Uid="RadialGradientBrush_3">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_3">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.451"
+                                x:Uid="ScaleTransform_3" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_3" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_3" />
+                <TranslateTransform Y="0.562" x:Uid="TranslateTransform_3" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_21" Color="#19FFFFFF" />
+        <GradientStop x:Uid="GradientStop_22" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_DisabledBackgroundGradient" x:Uid="LinearGradientBrush_7" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop x:Uid="GradientStop_23" Color="#FF3B3B3B" />
+        <GradientStop x:Uid="GradientStop_24" Offset="1" Color="#FF000000" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_TextBoxBackgroundGradient" x:Uid="LinearGradientBrush_8" StartPoint="0.498,-0.672" EndPoint="0.498,0.328">
+        <GradientStop x:Uid="GradientStop_25" Color="#FF3B3B3B" />
+        <GradientStop x:Uid="GradientStop_26" Offset="1" Color="#FF000000" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_TextBoxStroke" x:Uid="LinearGradientBrush_9" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop x:Uid="GradientStop_27" Color="#4CFFFFFF" />
+        <GradientStop x:Uid="GradientStop_28" Offset="1" Color="#33FFFFFF" />
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_TextBoxHighlightGradient" x:Uid="RadialGradientBrush_4">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_4">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.297"
+                                x:Uid="ScaleTransform_4" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_4" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_4" />
+                <TranslateTransform Y="0.639" x:Uid="TranslateTransform_4" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_29" Color="#4CFFFFFF" />
+        <GradientStop x:Uid="GradientStop_30" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_TextBoxMouseOverHighlight" x:Uid="RadialGradientBrush_5">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_5">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.297"
+                                x:Uid="ScaleTransform_5" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_5" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_5" />
+                <TranslateTransform Y="0.639" x:Uid="TranslateTransform_5" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_31" Color="#7FFFFFFF" />
+        <GradientStop x:Uid="GradientStop_32" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <SolidColorBrush x:Key="GlossyBlack_TextBoxDisabledBackground"
+                     x:Uid="SolidColorBrush_2"
+                     Color="#FF000000" />
+    <SolidColorBrush x:Key="GlossyBlack_GreyStateBackground"
+                     x:Uid="SolidColorBrush_3"
+                     Color="#FF808080" />
+    <SolidColorBrush x:Key="GlossyBlack_Selected"
+                     x:Uid="SolidColorBrush_4"
+                     Color="#FFFFFFFF" />
+    <RadialGradientBrush x:Key="GlossyBlack_DeterminateProgressBarHighlightGradient" x:Uid="RadialGradientBrush_6">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_6">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.177"
+                                ScaleY="1.591"
+                                x:Uid="ScaleTransform_6" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_6" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_6" />
+                <TranslateTransform Y="0.492" x:Uid="TranslateTransform_6" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_33" Color="#4CFFFFFF" />
+        <GradientStop x:Uid="GradientStop_34" Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="GlossyBlack_PopupBackgroundGradient" x:Uid="LinearGradientBrush_10" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop x:Uid="GradientStop_35" Offset="1" Color="#FF212121" />
+        <GradientStop x:Uid="GradientStop_36" Offset="0.629" Color="#FF000000" />
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="GlossyBlack_RectangleGlossGradient" x:Uid="RadialGradientBrush_7">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup x:Uid="TransformGroup_7">
+                <ScaleTransform CenterX="0.5"
+                                CenterY="0.5"
+                                ScaleX="2.6630001068115234"
+                                ScaleY="2.3280000686645508"
+                                x:Uid="ScaleTransform_7" />
+                <SkewTransform CenterX="0.5" CenterY="0.5" x:Uid="SkewTransform_7" />
+                <RotateTransform CenterX="0.5" CenterY="0.5" x:Uid="RotateTransform_7" />
+                <TranslateTransform X="0.51399999856948853" Y="0.61900001764297485" x:Uid="TranslateTransform_7" />
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop x:Uid="GradientStop_37" Offset="1" Color="#19FFFFFF" />
+        <GradientStop x:Uid="GradientStop_38" Offset="0.85699999332427979" Color="#19FFFFFF" />
+        <GradientStop x:Uid="GradientStop_39" Offset="0.84799998998641968" Color="#00FFFFFF" />
+    </RadialGradientBrush>
+    <SolidColorBrush x:Key="GlossyBlack_ListItemBackground"
+                     x:Uid="SolidColorBrush_5"
+                     Color="#FF000000" />
+    <LinearGradientBrush x:Key="GlossyBlack_ScrollBarBackgroundGradient" x:Uid="LinearGradientBrush_11" StartPoint="3.6,0.5" EndPoint="-2.6,0.5">
+        <GradientStop x:Uid="GradientStop_40" Color="#FF3B3B3B" />
+        <GradientStop x:Uid="GradientStop_41" Offset="0.554" Color="#FF000000" />
+    </LinearGradientBrush>
+
+    <Style x:Key="ComboBoxDefaultStyle"
+           TargetType="{x:Type ComboBox}"
+           x:Uid="Style_35">
+        <Setter x:Uid="Setter_78" Property="Padding" Value="6,2,25,2" />
+        <Setter x:Uid="Setter_79" Property="Background" Value="#FF1F3B53" />
+        <Setter x:Uid="Setter_80" Property="Foreground" Value="#FFFFFFFF" />
+        <Setter x:Uid="Setter_98" Property="Height" Value="22" />
+        <Setter x:Uid="Setter_233" Property="Margin" Value="1" />
+        <Setter x:Uid="Setter_81" Property="HorizontalContentAlignment" Value="Left" />
+        <Setter x:Uid="Setter_82" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_83" Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_1" StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop x:Uid="GradientStop_1" Offset="0" Color="#FFA3AEB9" />
+                    <GradientStop x:Uid="GradientStop_2" Offset="0.375" Color="#FF8399A9" />
+                    <GradientStop x:Uid="GradientStop_3" Offset="0.375" Color="#FF718597" />
+                    <GradientStop x:Uid="GradientStop_4" Offset="1" Color="#FF617584" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter x:Uid="Setter_84" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}" x:Uid="ControlTemplate_1">
+                    <Grid x:Uid="Grid_1">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type ToggleButton}"
+                                   x:Name="comboToggleStyle"
+                                   x:Uid="comboToggleStyle">
+                                <Setter x:Uid="Setter_85" Property="Foreground" Value="#FF333333" />
+                                <Setter x:Uid="Setter_86" Property="Background" Value="#FF1F3B53" />
+                                <Setter x:Uid="Setter_87" Property="BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush x:Uid="LinearGradientBrush_2" StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop x:Uid="GradientStop_5" Offset="0" Color="#FFA3AEB9" />
+                                            <GradientStop x:Uid="GradientStop_6" Offset="0.375" Color="#FF8399A9" />
+                                            <GradientStop x:Uid="GradientStop_7" Offset="0.375" Color="#FF718597" />
+                                            <GradientStop x:Uid="GradientStop_8" Offset="1" Color="#FF617584" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter x:Uid="Setter_88" Property="BorderThickness" Value="1" />
+                                <Setter x:Uid="Setter_89" Property="Padding" Value="3" />
+                                <!--<Setter x:Uid="Setter_X" Property="ClickMode" Value="Press" />-->
+                                <Setter x:Uid="Setter_90" Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ToggleButton}" x:Uid="ControlTemplate_2">
+                                            <Grid x:Uid="Grid_2">
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="CommonStates" x:Uid="CommonStates">
+                                                        <VisualStateGroup.Transitions>
+                                                            <VisualTransition GeneratedDuration="00:00:00.1"
+                                                                              To="MouseOver"
+                                                                              x:Uid="VisualTransition_1" />
+                                                            <VisualTransition GeneratedDuration="00:00:00.1"
+                                                                              To="Pressed"
+                                                                              x:Uid="VisualTransition_2" />
+                                                        </VisualStateGroup.Transitions>
+                                                        <VisualState x:Name="Normal" x:Uid="Normal" />
+                                                        <VisualState x:Name="MouseOver" x:Uid="MouseOver">
+                                                            <Storyboard x:Uid="Storyboard_1">
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="MouseOverState"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_1">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_1"
+                                                                                          Value="1" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Pressed" x:Uid="Pressed">
+                                                            <Storyboard x:Uid="Storyboard_2">
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="PressedState"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_2">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_2"
+                                                                                          Value="1" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Disabled" x:Uid="Disabled">
+                                                            <Storyboard x:Uid="Storyboard_3">
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="DisabledState"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_3">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_3"
+                                                                                          Value="1" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="gloss"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_4">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_4"
+                                                                                          Value="0" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                    <VisualStateGroup x:Name="CheckStates" x:Uid="CheckStates">
+                                                        <VisualState x:Name="Checked" x:Uid="Checked">
+                                                            <Storyboard x:Uid="Storyboard_4">
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="PressedState"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_5">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_5"
+                                                                                          Value="1" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Unchecked" x:Uid="Unchecked" />
+                                                    </VisualStateGroup>
+                                                    <VisualStateGroup x:Name="FocusStates" x:Uid="FocusStates">
+                                                        <VisualState x:Name="Focused" x:Uid="Focused">
+                                                            <Storyboard x:Uid="Storyboard_5">
+                                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                                               Duration="00:00:00.0010000"
+                                                                                               Storyboard.TargetName="MouseOverState"
+                                                                                               Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                                               x:Uid="DoubleAnimationUsingKeyFrames_6">
+                                                                    <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                                          x:Uid="SplineDoubleKeyFrame_6"
+                                                                                          Value="1" />
+                                                                </DoubleAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Unfocused" x:Uid="Unfocused" />
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+                                                <Grid x:Name="NormalState"
+                                                      Width="Auto"
+                                                      Height="Auto"
+                                                      Margin="0,0,0,0"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      x:Uid="NormalState">
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_BackgroundGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_1" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                                               x:Uid="Rectangle_2" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_HighlightGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_3" />
+                                                </Grid>
+                                                <Grid x:Name="MouseOverState"
+                                                      Width="Auto"
+                                                      Height="Auto"
+                                                      Margin="0,0,0,0"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      Opacity="0"
+                                                      x:Uid="MouseOverState">
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_BackgroundGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_4" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                                               x:Uid="Rectangle_5" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_MouseOverBackgroundGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_6" />
+                                                </Grid>
+                                                <Grid x:Name="PressedState"
+                                                      Width="Auto"
+                                                      Height="Auto"
+                                                      Margin="0,0,0,0"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      Opacity="0"
+                                                      x:Uid="PressedState">
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_PressedBackgroundGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_7" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                                               x:Uid="Rectangle_8" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_PressedHighlightGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_9" />
+                                                </Grid>
+                                                <Grid x:Name="DisabledState"
+                                                      Width="Auto"
+                                                      Height="Auto"
+                                                      Margin="0,0,0,0"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      Opacity="0"
+                                                      x:Uid="DisabledState">
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               Fill="{StaticResource GlossyBlack_DisabledBackgroundGradient}"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               x:Uid="Rectangle_10" />
+                                                    <Rectangle Margin="0,0,0,0"
+                                                               HorizontalAlignment="Stretch"
+                                                               VerticalAlignment="Stretch"
+                                                               RadiusX="0"
+                                                               RadiusY="0"
+                                                               Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                                               x:Uid="Rectangle_11" />
+                                                </Grid>
+                                                <ContentPresenter x:Name="contentPresenter"
+                                                                  Margin="{TemplateBinding Padding}"
+                                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                  Content="{TemplateBinding Content}"
+                                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                  x:Uid="contentPresenter" />
+                                                <Path x:Name="gloss"
+                                                      Height="Auto"
+                                                      Margin="0.001,0,0,29.333"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch"
+                                                      Data="M100,12.903966 C59.117226,15.115555 23.231062,5.8700194 0.12230452,36.666665 L-3.2684966E-13,0 C12,-2.8610229E-06 100,0 100,0"
+                                                      Fill="{StaticResource GlossyBlack_GlossGradient}"
+                                                      Stretch="Fill"
+                                                      x:Uid="gloss" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates" x:Uid="VisualStateGroup_1">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="00:00:00.1" x:Uid="VisualTransition_3" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" x:Uid="VisualState_1" />
+                                <VisualState x:Name="MouseOver" x:Uid="VisualState_2" />
+                                <VisualState x:Name="Disabled" x:Uid="VisualState_3">
+                                    <Storyboard x:Uid="Storyboard_6">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualElement"
+                                                                       Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                       x:Uid="DoubleAnimationUsingKeyFrames_7">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                  x:Uid="SplineDoubleKeyFrame_7"
+                                                                  Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates" x:Uid="VisualStateGroup_2">
+                                <VisualState x:Name="Focused" x:Uid="VisualState_4">
+                                    <Storyboard x:Uid="Storyboard_7" />
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" x:Uid="VisualState_5" />
+                                <VisualState x:Name="FocusedDropDown" x:Uid="FocusedDropDown">
+                                    <Storyboard x:Uid="Storyboard_8">
+                                        <ObjectAnimationUsingKeyFrames Duration="00:00:00"
+                                                                       Storyboard.TargetName="PopupBorder"
+                                                                       Storyboard.TargetProperty="(UIElement.Visibility)"
+                                                                       x:Uid="ObjectAnimationUsingKeyFrames_1">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00" x:Uid="DiscreteObjectKeyFrame_1">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility x:Uid="Visibility_1">Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="ContentPresenterBorder" x:Uid="ContentPresenterBorder">
+                            <Grid x:Uid="Grid_3">
+                                <ToggleButton x:Name="DropDownToggle"
+                                              Margin="-1"
+                                              HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Stretch"
+                                              HorizontalContentAlignment="Right"
+                                              Background="{StaticResource GlossyBlack_BackgroundGradient}"
+                                              BorderBrush="{StaticResource GlossyBlack_StrokeGradient}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              Foreground="{StaticResource GlossyBlack_GreyStateBackground}"
+                                              IsChecked="{Binding IsDropDownOpen,
+                                                                  Mode=TwoWay,
+                                                                  RelativeSource={RelativeSource TemplatedParent}}"
+                                              x:Uid="DropDownToggle">
+                                    <Path x:Name="BtnArrow"
+                                          Width="8"
+                                          Height="4"
+                                          Margin="0,0,6,0"
+                                          HorizontalAlignment="Right"
+                                          Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z "
+                                          Fill="{StaticResource GlossyBlack_GreyStateBackground}"
+                                          Stretch="Uniform"
+                                          x:Uid="BtnArrow" />
+                                </ToggleButton>
+                                <ContentPresenter x:Name="ContentSite"
+                                                  Margin="1,1,23,1"
+                                                  HorizontalAlignment="Left"
+                                                  VerticalAlignment="Center"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                  ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                  IsHitTestVisible="False"
+                                                  x:Uid="ContentSite" />
+                            </Grid>
+                        </Border>
+                        <Rectangle x:Name="DisabledVisualElement"
+                                   Fill="#A5000000"
+                                   IsHitTestVisible="false"
+                                   Opacity="0"
+                                   RadiusX="3"
+                                   RadiusY="3"
+                                   x:Uid="DisabledVisualElement" />
+                        <Popup x:Name="Popup"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               Placement="Bottom"
+                               PopupAnimation="Slide"
+                               x:Uid="Popup">
+                            <Grid x:Name="DropDown"
+                                  MinWidth="{TemplateBinding ActualWidth}"
+                                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                  SnapsToDevicePixels="True"
+                                  x:Uid="DropDown">
+                                <Border x:Name="PopupBorder"
+                                        Height="Auto"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource GlossyBlack_PopupBackgroundGradient}"
+                                        BorderBrush="{StaticResource GlossyBlack_StrokeGradient}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="0,0,0,0"
+                                        x:Uid="PopupBorder">
+                                    <ScrollViewer BorderBrush="{x:Null}"
+                                                  BorderThickness="0"
+                                                  CanContentScroll="True"
+                                                  Foreground="{StaticResource GlossyBlack_Selected}"
+                                                  HorizontalScrollBarVisibility="Auto"
+                                                  Padding="1"
+                                                  SnapsToDevicePixels="True"
+                                                  VerticalScrollBarVisibility="Auto"
+                                                  x:Uid="ScrollViewer_1">
+                                        <ItemsPresenter x:Uid="ItemsPresenter_1" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Uid="Style_67" x:Key="{x:Type ComboBox}"
+           BasedOn="{StaticResource ComboBoxDefaultStyle}"
+           TargetType="{x:Type ComboBox}"/>
+
+    <!--  ComboBoxItem  -->
+    <Style x:Key="{x:Type ComboBoxItem}"
+           TargetType="{x:Type ComboBoxItem}"
+           x:Uid="Style_36">
+        <Setter x:Uid="Setter_91" Property="Padding" Value="3" />
+        <Setter x:Uid="Setter_92" Property="HorizontalContentAlignment" Value="Left" />
+        <Setter x:Uid="Setter_93" Property="VerticalContentAlignment" Value="Top" />
+        <Setter x:Uid="Setter_94" Property="Background" Value="Transparent" />
+        <Setter x:Uid="Setter_95" Property="Foreground" Value="#FFFFFFFF" />
+        <Setter x:Uid="Setter_96" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_97" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}" x:Uid="ControlTemplate_3">
+                    <Grid Background="{TemplateBinding Background}" x:Uid="Grid_4">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates" x:Uid="VisualStateGroup_3">
+                                <VisualState x:Name="Normal" x:Uid="VisualState_6" />
+                                <VisualState x:Name="MouseOver" x:Uid="VisualState_7">
+                                    <Storyboard x:Uid="Storyboard_9">
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                       Duration="00:00:00.0010000"
+                                                                       Storyboard.TargetName="MouseOverState"
+                                                                       Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                       x:Uid="DoubleAnimationUsingKeyFrames_8">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                  x:Uid="SplineDoubleKeyFrame_8"
+                                                                  Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates" x:Uid="SelectionStates">
+                                <VisualState x:Name="Unselected" x:Uid="Unselected" />
+                                <VisualState x:Name="Selected" x:Uid="Selected">
+                                    <Storyboard x:Uid="Storyboard_10">
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                       Duration="00:00:00.0010000"
+                                                                       Storyboard.TargetName="SelectedState"
+                                                                       Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                       x:Uid="DoubleAnimationUsingKeyFrames_9">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                  x:Uid="SplineDoubleKeyFrame_9"
+                                                                  Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+                                                                       Duration="00:00:00.0010000"
+                                                                       Storyboard.TargetName="gloss"
+                                                                       Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                                       x:Uid="DoubleAnimationUsingKeyFrames_10">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00"
+                                                                  x:Uid="SplineDoubleKeyFrame_10"
+                                                                  Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates" x:Uid="VisualStateGroup_4">
+                                <VisualState x:Name="Focused" x:Uid="VisualState_8">
+                                    <Storyboard x:Uid="Storyboard_11" />
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" x:Uid="VisualState_9" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="NormalState"
+                              Width="Auto"
+                              Height="Auto"
+                              Margin="0,0,0,0"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Opacity="1"
+                              x:Uid="Grid_5">
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_ListItemBackground}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_12" />
+                        </Grid>
+                        <Grid x:Name="MouseOverState"
+                              Width="Auto"
+                              Height="Auto"
+                              Margin="0,0,0,0"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Opacity="0"
+                              x:Uid="Grid_6">
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_BackgroundGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_13" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                       x:Uid="Rectangle_14" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_MouseOverBackgroundGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_15" />
+                        </Grid>
+                        <Grid x:Name="PressedState"
+                              Width="Auto"
+                              Height="Auto"
+                              Margin="0,0,0,0"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Opacity="0"
+                              x:Uid="Grid_7">
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_PressedBackgroundGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_16" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                       x:Uid="Rectangle_17" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_PressedHighlightGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_18" />
+                        </Grid>
+                        <Grid x:Name="SelectedState"
+                              Width="Auto"
+                              Height="Auto"
+                              Margin="0,0,0,0"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Opacity="0"
+                              x:Uid="SelectedState">
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_BackgroundGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_19" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       Stroke="{StaticResource GlossyBlack_StrokeGradient}"
+                                       x:Uid="Rectangle_20" />
+                            <Rectangle Margin="0,0,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{StaticResource GlossyBlack_MouseOverBackgroundGradient}"
+                                       RadiusX="0"
+                                       RadiusY="0"
+                                       x:Uid="Rectangle_21" />
+                        </Grid>
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          x:Uid="ContentPresenter_1" />
+                        <Rectangle x:Name="gloss"
+                                   Margin="0,0,0,0"
+                                   Fill="{StaticResource GlossyBlack_RectangleGlossGradient}"
+                                   Opacity="0"
+                                   Stroke="{x:Null}"
+                                   x:Uid="Rectangle_22" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

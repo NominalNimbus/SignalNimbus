@@ -1,0 +1,14 @@
+diff a/CodeInstance/CodeInstance.csproj b/CodeInstance/CodeInstance.csproj	(rejected hunks)
+@@ -42,10 +42,10 @@
+   </PropertyGroup>
+   <ItemGroup>
+     <Reference Include="CommonObjects">
+-      <HintPath>..\..\M4\Code\Deploy\CommonObjects.dll</HintPath>
++      <HintPath>..\Libs\CommonObjects.dll</HintPath>
+     </Reference>
+     <Reference Include="Modulus.Backtester">
+-      <HintPath>..\..\M4\Code\Deploy\Modulus.Backtester.dll</HintPath>
++      <HintPath>..\Libs\Modulus.Backtester.dll</HintPath>
+     </Reference>
+     <Reference Include="PresentationCore" />
+     <Reference Include="System" />

@@ -1,0 +1,471 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:converters="clr-namespace:DebugService.Converters"
+                    x:Uid="ResourceDictionary_4">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Brushes.xaml" x:Uid="ResourceDictionary_3" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+
+    <Style TargetType="RepeatButton" x:Uid="Style_55">
+        <Setter x:Uid="Setter_253" Property="Background" Value="#FF1F3B53" />
+        <Setter x:Uid="Setter_254" Property="Foreground" Value="#FF000000" />
+        <Setter x:Uid="Setter_255" Property="Padding" Value="3" />
+        <Setter x:Uid="Setter_256" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_257" Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush x:Uid="LinearGradientBrush_27" StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop x:Uid="GradientStop_104" Offset="0" Color="#FFA3AEB9" />
+                    <GradientStop x:Uid="GradientStop_105" Offset="0.375" Color="#FF8399A9" />
+                    <GradientStop x:Uid="GradientStop_106" Offset="0.375" Color="#FF718597" />
+                    <GradientStop x:Uid="GradientStop_107" Offset="1" Color="#FF617584" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter x:Uid="Setter_258" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton" x:Uid="ControlTemplate_28">
+                    <Grid x:Uid="Grid_83">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates" x:Uid="CommonStates">
+                                <VisualState x:Name="Normal" x:Uid="Normal" />
+                                <VisualState x:Name="MouseOver" x:Uid="MouseOver">
+                                    <Storyboard x:Uid="Storyboard_1">
+                                        <DoubleAnimation Duration="0"
+                                                         Storyboard.TargetName="BackgroundAnimation"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         x:Uid="DoubleAnimation_1" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_1" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_2" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_3" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed" x:Uid="Pressed">
+                                    <Storyboard x:Uid="Storyboard_2">
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="Background"
+                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_4" />
+                                        <DoubleAnimation Duration="0"
+                                                         Storyboard.TargetName="BackgroundAnimation"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         x:Uid="DoubleAnimation_2" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_5" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_6" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_7" />
+                                        <ColorAnimation Duration="0"
+                                                        Storyboard.TargetName="BackgroundGradient"
+                                                        Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)"
+                                                        To="{StaticResource DarkBackGroundColor}"
+                                                        x:Uid="ColorAnimation_8" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" x:Uid="Disabled">
+                                    <Storyboard x:Uid="Storyboard_3">
+                                        <DoubleAnimation Duration="0"
+                                                         Storyboard.TargetName="DisabledVisualElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To=".55"
+                                                         x:Uid="DoubleAnimation_3" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates" x:Uid="FocusStates">
+                                <VisualState x:Name="Focused" x:Uid="Focused">
+                                    <Storyboard x:Uid="Storyboard_4">
+                                        <DoubleAnimation Duration="0"
+                                                         Storyboard.TargetName="FocusVisualElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1"
+                                                         x:Uid="DoubleAnimation_4" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" x:Uid="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Background"
+                                Background="{StaticResource DarkBackGroundBrush}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3"
+                                x:Uid="Background">
+                            <Grid Margin="1"
+                                  Background="{TemplateBinding Background}"
+                                  x:Uid="Grid_84">
+                                <Border x:Name="BackgroundAnimation"
+                                        Background="{StaticResource MainAreaBackgroundBrush}"
+                                        Opacity="0"
+                                        x:Uid="BackgroundAnimation" />
+                                <Rectangle x:Name="BackgroundGradient" x:Uid="BackgroundGradient">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush x:Uid="LinearGradientBrush_28" StartPoint=".7,0" EndPoint=".7,1">
+                                            <GradientStop x:Uid="GradientStop_108" Offset="0" Color="{StaticResource DarkBackGroundColor}" />
+                                            <GradientStop x:Uid="GradientStop_109" Offset="0.375" Color="{StaticResource DarkBackGroundColor}" />
+                                            <GradientStop x:Uid="GradientStop_110" Offset="0.625" Color="{StaticResource DarkBackGroundColor}" />
+                                            <GradientStop x:Uid="GradientStop_111" Offset="1" Color="{StaticResource DarkBackGroundColor}" />
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Border>
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          x:Uid="contentPresenter" />
+                        <Rectangle x:Name="DisabledVisualElement"
+                                   Fill="#FF000000"
+                                   IsHitTestVisible="false"
+                                   Opacity="0"
+                                   RadiusX="3"
+                                   RadiusY="3"
+                                   x:Uid="DisabledVisualElement" />
+                        <Rectangle x:Name="FocusVisualElement"
+                                   Margin="1"
+                                   IsHitTestVisible="false"
+                                   Opacity="0"
+                                   RadiusX="2"
+                                   RadiusY="2"
+                                   Stroke="#4CFFFFFF"
+                                   StrokeThickness="1"
+                                   x:Uid="FocusVisualElement" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="TextBoxBorder" MappingMode="Absolute" x:Uid="LinearGradientBrush_24" StartPoint="0,0" EndPoint="0,20">
+        <GradientStop x:Uid="GradientStop_95" Offset="0.05" Color="#ABADB3" />
+        <GradientStop x:Uid="GradientStop_96" Offset="0.07" Color="#E2E3EA" />
+        <GradientStop x:Uid="GradientStop_97" Offset="1" Color="#E3E9EF" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TextBox_MouseOver" x:Uid="LinearGradientBrush_25" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop x:Uid="GradientStop_98" Offset="0.05" Color="#5794BF" />
+        <GradientStop x:Uid="GradientStop_99" Offset="0.07" Color="#B7D5EA" />
+        <GradientStop x:Uid="GradientStop_100" Offset="1" Color="#C7E2F1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TextBox_Focused" x:Uid="LinearGradientBrush_26" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop x:Uid="GradientStop_101" Offset="0.05" Color="#3D7BAD" />
+        <GradientStop x:Uid="GradientStop_102" Offset="0.07" Color="#A4C9E3" />
+        <GradientStop x:Uid="GradientStop_103" Offset="1" Color="#B7D9ED" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TextBox_DisabledBorder"
+                     x:Uid="SolidColorBrush_12"
+                     Color="#131313" />
+    <SolidColorBrush x:Key="TextBox_DisabledBackground"
+                     x:Uid="SolidColorBrush_13"
+                     Color="{StaticResource DarkBackGroundColor}" />
+
+    <DataTemplate x:Key="DefaultWatermarkTemplate" x:Uid="DataTemplate_1">
+        <ContentControl Content="{Binding}"
+                        Focusable="False"
+                        Foreground="{StaticResource TextForegroundBrush}"
+                        x:Uid="ContentControl_1" />
+    </DataTemplate>
+
+    <Style x:Key="WatermarkTextBox"
+           TargetType="{x:Type xctk:WatermarkTextBox}"
+           x:Uid="Style_51">
+        <Setter x:Uid="Setter_212" Property="Foreground" Value="{StaticResource TextForegroundBrush}" />
+        <Setter x:Uid="Setter_213" Property="Background" Value="{StaticResource DarkBackGroundBrush}" />
+        <Setter x:Uid="Setter_214" Property="BorderBrush" Value="{StaticResource MainAreaBackgroundBrush}" />
+        <Setter x:Uid="Setter_215" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_216" Property="Padding" Value="3" />
+        <Setter x:Uid="Setter_217" Property="AllowDrop" Value="true" />
+        <Setter x:Uid="Setter_218" Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter x:Uid="Setter_219" Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
+        <Setter x:Uid="Setter_220" Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter x:Uid="Setter_221" Property="WatermarkTemplate" Value="{StaticResource DefaultWatermarkTemplate}" />
+        <Setter x:Uid="Setter_222" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type xctk:WatermarkTextBox}" x:Uid="ControlTemplate_25">
+                    <Grid x:Uid="Grid_80">
+
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="1"
+                                x:Uid="Border" />
+                        <Border x:Name="MouseOverVisual"
+                                BorderBrush="{StaticResource TextBox_MouseOver}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="1"
+                                Opacity="0"
+                                x:Uid="MouseOverVisual" />
+                        <Border x:Name="FocusVisual"
+                                BorderBrush="{StaticResource TextBox_Focused}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="1"
+                                Opacity="0"
+                                x:Uid="FocusVisual" />
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                      x:Uid="ScrollViewer_3" />
+                        <ContentPresenter x:Name="PART_WatermarkHost"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Watermark}"
+                                          ContentTemplate="{TemplateBinding WatermarkTemplate}"
+                                          IsHitTestVisible="False"
+                                          Visibility="Collapsed"
+                                          x:Uid="PART_WatermarkHost" />
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger x:Uid="MultiTrigger_1">
+                            <MultiTrigger.Conditions>
+                                <Condition x:Uid="Condition_1" Property="IsFocused" Value="False" />
+                                <Condition x:Uid="Condition_2" Property="Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter x:Uid="Setter_223" TargetName="PART_WatermarkHost" Property="Visibility" Value="Visible" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <Trigger x:Uid="Trigger_2" Property="IsMouseOver" Value="True">
+                            <Setter x:Uid="Setter_224" TargetName="MouseOverVisual" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger x:Uid="Trigger_3" Property="IsFocused" Value="True">
+                            <Setter x:Uid="Setter_225" TargetName="FocusVisual" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger x:Uid="Trigger_4" Property="IsEnabled" Value="false">
+                            <Setter x:Uid="Setter_226" TargetName="Border" Property="BorderBrush" Value="{StaticResource TextBox_DisabledBorder}" />
+                            <Setter x:Uid="Setter_227" TargetName="Border" Property="Background" Value="{StaticResource TextBox_DisabledBackground}" />
+                            <Setter x:Uid="Setter_228" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource WatermarkTextBox}"
+           TargetType="{x:Type xctk:WatermarkTextBox}"
+           x:Uid="Style_52" />
+
+    <Style x:Key="InputBaseDefaultStyle"
+           TargetType="{x:Type xctk:InputBase}"
+           x:Uid="Style_53">
+        <Setter x:Uid="Setter_229" Property="Background" Value="{StaticResource DarkBackGroundBrush}" />
+        <Setter x:Uid="Setter_230" Property="BorderBrush" Value="{StaticResource MainAreaBackgroundBrush}" />
+        <Setter x:Uid="Setter_231" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_232" Property="Foreground" Value="{StaticResource TextForegroundBrush}" />
+        <Setter x:Uid="Setter_233" Property="HorizontalContentAlignment" Value="Right" />
+        <Setter x:Uid="Setter_234" Property="IsTabStop" Value="False" />
+        <Setter x:Uid="Setter_235" Property="VerticalContentAlignment" Value="Center" />
+        <Setter x:Uid="Setter_236" Property="TextAlignment" Value="Right" />
+        <Setter x:Uid="Setter_237" Property="WatermarkTemplate" Value="{StaticResource DefaultWatermarkTemplate}" />
+        <Setter x:Uid="Setter_238" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Control" x:Uid="ControlTemplate_26">
+                    <xctk:ButtonSpinner x:Name="PART_Spinner"
+                                        AllowSpin="{Binding AllowSpin,
+                                                            RelativeSource={RelativeSource TemplatedParent}}"
+                                        Background="Black"
+                                        BorderBrush="{StaticResource GridBackgroundBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Foreground="Black"
+                                        IsTabStop="False"
+                                        ShowButtonSpinner="{Binding ShowButtonSpinner,
+                                                                    RelativeSource={RelativeSource TemplatedParent}}"
+                                        x:Uid="PART_Spinner">
+                        <xctk:WatermarkTextBox x:Name="PART_TextBox"
+                                               MinWidth="20"
+                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                               AcceptsReturn="False"
+                                               Background="{StaticResource DarkBackGroundBrush}"
+                                               BorderThickness="0"
+                                               ContextMenu="{TemplateBinding ContextMenu}"
+                                               FontFamily="{TemplateBinding FontFamily}"
+                                               FontSize="{TemplateBinding FontSize}"
+                                               FontStretch="{TemplateBinding FontStretch}"
+                                               FontStyle="{TemplateBinding FontStyle}"
+                                               FontWeight="{TemplateBinding FontWeight}"
+                                               Foreground="{StaticResource TextForegroundBrush}"
+                                               IsReadOnly="{Binding IsReadOnly,
+                                                                    RelativeSource={RelativeSource TemplatedParent}}"
+                                               Padding="{TemplateBinding Padding}"
+                                               TabIndex="{TemplateBinding TabIndex}"
+                                               TextAlignment="{Binding TextAlignment,
+                                                                       RelativeSource={RelativeSource TemplatedParent}}"
+                                               TextWrapping="NoWrap"
+                                               Watermark="{Binding Watermark,
+                                                                   RelativeSource={RelativeSource TemplatedParent}}"
+                                               WatermarkTemplate="{Binding WatermarkTemplate,
+                                                                           RelativeSource={RelativeSource TemplatedParent}}"
+                                               x:Uid="PART_TextBox" />
+                    </xctk:ButtonSpinner>
+                    <ControlTemplate.Triggers>
+                        <Trigger x:Uid="Trigger_5" Property="IsEnabled" Value="False">
+                            <Setter x:Uid="Setter_239" Property="Foreground" Value="{StaticResource TextForegroundBrush}" />
+                        </Trigger>
+                        <Trigger x:Uid="Trigger_6" Property="IsFocused" Value="True">
+                            <Setter x:Uid="Setter_240" TargetName="PART_TextBox" Property="FocusManager.FocusedElement" Value="{Binding ElementName=PART_TextBox}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Uid="Style_56" TargetType="{x:Type xctk:InputBase}" BasedOn="{StaticResource InputBaseDefaultStyle}"/>
+
+    <Geometry x:Key="UpArrowGeometry" x:Uid="Geometry_1">M 0,3 C0,3 0,4 0,4 0,4 3,4 3,4 3,4 3,3 3,3 3,3 4,3 4,3 4,3 4,4 4,4 4,4 7,4 7,4 7,4 7,3 7,3 7,3 6,3 6,3 6,3 6,2 6,2 6,2 5,2 5,2 5,2 5,1 5,1 5,1 4,1 4,1 4,1 4,0 4,0 4,0 3,0 3,0 3,0 3,1 3,1 3,1 2,1 2,1 2,1 2,2 2,2 2,2 1,2 1,2 1,2 1,3 1,3 1,3 0,3 0,3 z</Geometry>
+    <Geometry x:Key="DownArrowGeometry" x:Uid="Geometry_2">M 0,1 C0,1 0,0 0,0 0,0 3,0 3,0 3,0 3,1 3,1 3,1 4,1 4,1 4,1 4,0 4,0 4,0 7,0 7,0 7,0 7,1 7,1 7,1 6,1 6,1 6,1 6,2 6,2 6,2 5,2 5,2 5,2 5,3 5,3 5,3 4,3 4,3 4,3 4,4 4,4 4,4 3,4 3,4 3,4 3,3 3,3 3,3 2,3 2,3 2,3 2,2 2,2 2,2 1,2 1,2 1,2 1,1 1,1 1,1 0,1 0,1 z</Geometry>
+
+    <DataTemplate x:Key="IncreaseGlyphNormalKey" x:Uid="DataTemplate_2">
+        <Path Width="7"
+              Height="4"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Data="{StaticResource UpArrowGeometry}"
+              Fill="{StaticResource TextForegroundBrush}"
+              Focusable="False"
+              SnapsToDevicePixels="True"
+              x:Uid="Path_15" />
+    </DataTemplate>
+    <DataTemplate x:Key="IncreaseGlyphDisabledKey" x:Uid="DataTemplate_3">
+        <Path Width="7"
+              Height="4"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Data="{StaticResource UpArrowGeometry}"
+              Fill="{StaticResource TextForegroundBrush}"
+              Focusable="False"
+              SnapsToDevicePixels="True"
+              x:Uid="Path_16" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DecreaseGlyphNormalKey" x:Uid="DataTemplate_4">
+        <Path Width="7"
+              Height="4"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Data="{StaticResource DownArrowGeometry}"
+              Fill="{StaticResource TextForegroundBrush}"
+              Focusable="False"
+              SnapsToDevicePixels="True"
+              x:Uid="Path_17" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="DecreaseGlyphDisabledKey" x:Uid="DataTemplate_5">
+        <Path Width="7"
+              Height="4"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Data="{StaticResource DownArrowGeometry}"
+              Fill="{StaticResource TextForegroundBrush}"
+              Focusable="False"
+              SnapsToDevicePixels="True"
+              x:Uid="Path_18" />
+    </DataTemplate>
+
+    <Style TargetType="{x:Type xctk:ButtonSpinner}" x:Uid="Style_54">
+        <Setter x:Uid="Setter_241" Property="Background" Value="{StaticResource DarkBackGroundBrush}" />
+        <Setter x:Uid="Setter_242" Property="BorderBrush" Value="{StaticResource TextForegroundBrush}" />
+        <Setter x:Uid="Setter_243" Property="BorderThickness" Value="1" />
+        <Setter x:Uid="Setter_244" Property="Focusable" Value="False" />
+        <Setter x:Uid="Setter_245" Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter x:Uid="Setter_246" Property="IsTabStop" Value="True" />
+        <Setter x:Uid="Setter_247" Property="Padding" Value="1" />
+        <Setter x:Uid="Setter_248" Property="VerticalContentAlignment" Value="Center" />
+        <Setter x:Uid="Setter_249" Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type xctk:ButtonSpinner}" x:Uid="ControlTemplate_27">
+                    <Border x:Name="Border"
+                            Background="{StaticResource DarkBackGroundBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True"
+                            x:Uid="Border_4">
+                        <Grid x:Uid="Grid_81">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" x:Uid="ColumnDefinition_12" />
+                                <ColumnDefinition Width="Auto" x:Uid="ColumnDefinition_13" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Focusable="False"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              x:Uid="ContentPresenter_7" />
+
+                            <Grid Grid.Column="1"
+                                  Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                                  Visibility="{TemplateBinding ShowButtonSpinner, Converter={StaticResource BoolToVisibilityConverter}}"
+                                  x:Uid="Grid_82">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" x:Uid="RowDefinition_11" />
+                                    <RowDefinition Height="*" x:Uid="RowDefinition_12" />
+                                </Grid.RowDefinitions>
+
+                                <RepeatButton x:Name="PART_IncreaseButton"
+                                              ContentTemplate="{StaticResource IncreaseGlyphNormalKey}"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              x:Uid="PART_IncreaseButton" />
+
+                                <RepeatButton x:Name="PART_DecreaseButton"
+                                              Grid.Row="1"
+                                              ContentTemplate="{StaticResource DecreaseGlyphNormalKey}"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              x:Uid="PART_DecreaseButton" />
+
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger x:Uid="Trigger_7" Property="IsEnabled" Value="False">
+                            <Setter x:Uid="Setter_250" Property="Background" Value="{DynamicResource {x:Static themes:ResourceKeys.ControlDisabledBackgroundKey}}" />
+                        </Trigger>
+                        <Trigger SourceName="PART_IncreaseButton" x:Uid="Trigger_8" Property="IsEnabled" Value="False">
+                            <Setter x:Uid="Setter_251" TargetName="PART_IncreaseButton" Property="ContentTemplate" Value="{StaticResource IncreaseGlyphDisabledKey}" />
+                        </Trigger>
+                        <Trigger SourceName="PART_DecreaseButton" x:Uid="Trigger_9" Property="IsEnabled" Value="False">
+                            <Setter x:Uid="Setter_252" TargetName="PART_DecreaseButton" Property="ContentTemplate" Value="{StaticResource DecreaseGlyphDisabledKey}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

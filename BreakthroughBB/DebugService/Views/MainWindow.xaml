@@ -1,0 +1,331 @@
+﻿<Window x:Class="DebugService.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:DebugService.Controls"
+        xmlns:converters="clr-namespace:DebugService.Converters"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="{Binding WindowTitle}"
+        Foreground="#AAAAAA"
+        WindowStartupLocation="CenterScreen"
+        Width="800"
+        Height="480">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/DarkSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+            <converters:ObjectToBoolConverter x:Key="ObjectToBoolConverter" />
+            <converters:CodeParameterToEditorConverter x:Key="CodeParameterToEditorConverter" />
+            <converters:IsSelectedItemConverter x:Key="IsSelectedItemConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" 
+              FontSize="14" 
+              Padding="0,2,0,4" 
+              Background="{StaticResource DarkMenuBackGroundBrush}" 
+              Foreground="{StaticResource TextForegroundBrush}">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="{Binding StartStopAction}" 
+                      Click="mnuStartStop_Click" />
+            <MenuItem Header="_Backtest" 
+                      Click="mnuBacktest_Click"
+                      IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}"/>
+            <MenuItem Header="L_oad Workspace" 
+                      Click="mnuLoadWorkspace_Click" 
+                      IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}" />
+            <MenuItem Header="_Save Workspace" 
+                      Click="mnuSaveWorkspace_Click" />
+            <MenuItem Header="E_xit" 
+                      HorizontalAlignment="Right"
+                      Click="mnuExit_Click" />
+        </Menu>
+        <Grid Style="{StaticResource MainWindowStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+
+            <!--  Simulated data  -->
+            <Grid Grid.Row="0" Margin="5">
+                <Grid.Resources>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <controls:MultiSelectDataGrid Grid.Column="0"
+                          AutoGenerateColumns="False"
+                          BorderBrush="{StaticResource LightBorderBrush}"
+                          BorderThickness="1"
+                          ItemsSource="{Binding HistoricalData}"
+                          SelectedItemsList="{Binding SelectedHistoricalData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource DataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                            Binding="{Binding Title, Mode=OneWay}"
+                                            Header="Simulated historical data" />
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}">
+                            <MenuItem Click="btnLoadFile_Click" Header="Load from file" />
+                            <MenuItem Click="btnCreateSimulatedData_Click" Header="Create simulated data" />
+                            <MenuItem Click="btnRemoveHistoricalItem_Click"
+                                      Header="Remove"
+                                      IsEnabled="{Binding SelectedHistoricalData,
+                                                          Converter={StaticResource ObjectToBoolConverter}}" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </controls:MultiSelectDataGrid>
+
+                <Grid Grid.Column="1" Margin="20,0,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="89" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="0,0,5,0" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                        <Style x:Key="DoubleUpDownStyle" TargetType="xctk:DoubleUpDown">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Minimum" Value="0.0001" />
+                            <Setter Property="Increment" Value="0.01" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                        <Style x:Key="DateTimeUpDownStyle" TargetType="xctk:DateTimeUpDown">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </Grid.Resources>
+                    <TextBlock Grid.Row="0"
+                               Grid.Column="0"
+                               Style="{StaticResource TextBlockStyle}">
+                        Bid:
+                    </TextBlock>
+                    <TextBlock Grid.Row="1"
+                               Grid.Column="0"
+                               Style="{StaticResource TextBlockStyle}">
+                        Ask:
+                    </TextBlock>
+                    <TextBlock Grid.Row="2"
+                               Grid.Column="0"
+                               Style="{StaticResource TextBlockStyle}">
+                        BidSize:
+                    </TextBlock>
+                    <TextBlock Grid.Row="3"
+                               Grid.Column="0"
+                               Style="{StaticResource TextBlockStyle}">
+                        AskSize:
+                    </TextBlock>
+
+                    <xctk:DoubleUpDown Grid.Row="0"
+                                       Grid.Column="1"
+                                       Style="{StaticResource DoubleUpDownStyle}"
+                                       Value="{Binding Bid,
+                                                       UpdateSourceTrigger=PropertyChanged}" />
+                    <xctk:DoubleUpDown Grid.Row="1"
+                                       Grid.Column="1"
+                                       Style="{StaticResource DoubleUpDownStyle}"
+                                       Value="{Binding Ask,
+                                                       UpdateSourceTrigger=PropertyChanged}" />
+                    <xctk:DoubleUpDown Grid.Row="2"
+                                       Grid.Column="1"
+                                       Increment="1"
+                                       Minimum="1"
+                                       Style="{StaticResource DoubleUpDownStyle}"
+                                       Value="{Binding BidSize,
+                                                       UpdateSourceTrigger=PropertyChanged}" />
+                    <xctk:DoubleUpDown Grid.Row="3"
+                                       Grid.Column="1"
+                                       Increment="1"
+                                       Minimum="1"
+                                       Style="{StaticResource DoubleUpDownStyle}"
+                                       Value="{Binding AskSize,
+                                                       UpdateSourceTrigger=PropertyChanged}" />
+                    <xctk:DateTimeUpDown Grid.Row="4"
+                                         Grid.ColumnSpan="2"
+                                         Format="Custom"
+                                         FormatString="H:mm:ss - d/MM/yy"
+                                         Style="{StaticResource DateTimeUpDownStyle}"
+                                         Value="{Binding Date, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Row="5"
+                            Grid.ColumnSpan="2"
+                            Height="22"
+                            Click="btnNewQuote_Click"
+                            IsEnabled="{Binding IsStarted}"
+                            Content="&lt;&lt;  Append Tick" />
+                </Grid>
+
+                <DataGrid Grid.Column="2" Margin="0,0,0,5"
+                              AutoGenerateColumns="False"
+                              BorderBrush="{StaticResource LightBorderBrush}"
+                              BorderThickness="1"
+                              IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}"
+                              ItemsSource="{Binding Accounts}"
+                              SelectedItem="{Binding SelectedAccount,
+                                                     UpdateSourceTrigger=PropertyChanged}"
+                              Style="{StaticResource DataGridStyle}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                                Binding="{Binding}"
+                                                Header="Simulated broker accounts" />
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Click="cmnAddAccount_Click" Header="Add" />
+                            <MenuItem Click="cmnEditAccount_Click"
+                                          Header="Edit"
+                                          IsEnabled="{Binding SelectedAccount,
+                                                              Converter={StaticResource IsSelectedItemConverter}}" />
+                            <MenuItem Click="btnRemoveAccount_OnClick"
+                                          Header="Remove"
+                                          IsEnabled="{Binding SelectedAccount,
+                                                              Converter={StaticResource IsSelectedItemConverter}}" />
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition MinWidth="200" />
+                </Grid.ColumnDefinitions>
+
+                <GridSplitter Grid.Column="1"
+                              Width="3"
+                              Margin="3,0"
+                              HorizontalAlignment="Stretch"
+                              Background="Transparent" />
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center">User code output</TextBlock>
+                    <controls:ScrollingTextBox Grid.Row="1"
+                                               Margin="0,5,0,0"
+                                               BorderThickness="1"
+                                               BorderBrush="{StaticResource LightBorderBrush}"
+                                               Background="{StaticResource MainAreaBackgroundBrush}"
+                                               Foreground="{StaticResource TextForegroundBrush}"
+                                               IsReadOnly="True"
+                                               Padding="3"
+                                               Text="{Binding Output}"
+                                               TextWrapping="Wrap"
+                                               VerticalScrollBarVisibility="Visible" />
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Margin="5,0" HorizontalAlignment="Center">User code parameters</TextBlock>
+                        <Button Height="18"
+                                BorderThickness="0"
+                                Click="btnRefreshCodeParameters_OnClick"
+                                IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}"
+                                Padding="0">
+                            <Button.ContentTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="0,-3,0,0"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="15"
+                                               Padding="0"
+                                               ToolTip="Refresh parameters">
+                                        ↺
+                                    </TextBlock>
+                                </DataTemplate>
+                            </Button.ContentTemplate>
+                        </Button>
+                    </StackPanel>
+                    <DataGrid Grid.Row="1"
+                              Margin="0,5,0,0"
+                              AutoGenerateColumns="False"
+                              IsEnabled="{Binding IsStarted, Converter={StaticResource InverseBooleanConverter}}"
+                              ItemsSource="{Binding Parameters}"
+                              BorderBrush="{StaticResource LightBorderBrush}"
+                              BorderThickness="1"
+                              Style="{StaticResource DataGridStyle}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn MinWidth="50"
+                                                    CanUserSort="False"
+                                                    Header="Name">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate x:Uid="DataTemplate_3">
+                                        <TextBlock Margin="5,0"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"
+                                                   Text="{Binding Name}"
+                                                   x:Uid="TextBlock_1" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="200"
+                                                    CanUserSort="False"
+                                                    Header="Value"
+                                                    x:Uid="DataGridTemplateColumn_3">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate x:Uid="DataTemplate_4">
+                                        <ContentControl Margin="5"
+                                                        VerticalAlignment="Center"
+                                                        Content="{Binding Converter={StaticResource CodeParameterToEditorConverter}}"
+                                                        x:Uid="ContentControl_1">
+                                            <ContentControl.Resources />
+                                        </ContentControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*"
+                                                    CanUserSort="False"
+                                                    Header="Description"
+                                                    x:Uid="DataGridTemplateColumn_4">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate x:Uid="DataTemplate_5">
+                                        <TextBlock Margin="5,0"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Text="{Binding Category}"
+                                                   x:Uid="TextBlock_2" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </DockPanel>
+</Window>
